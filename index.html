@@ -33,6 +33,10 @@
       <ul>
     </div>
 <script type="text/javascript">
+  $(document).ready(function() {
+     alert("This task list was made with jQuery. Enjoy!");
+  });
+  
   $("#changeColors").on("click", function() {
     let backCol = $("#backgroundColor").val();
     let listCol = $("#listColor").val();
