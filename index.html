@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script src="https://use.fontawesome.com/4d29e014e0.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet"> 
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"
+    ></script>
+    <title>Static Template</title>
+  </head>
+  <body>
+    <!--
+    <div id="colorChanger">
+      <p>Choose your background color! <input type="color" id="backgroundColor"></p>
+      <p>Choose your list color! <input type="color" id="listColor"></p>
+      <p>Choose your list banner color! <input type="color" id="bannerColor"></p>
+      <p>Choose your list name! <input type="text" id="listName"></p>
+      <button id="changeColors">Change the Colors!</button>
+    </div>
+  -->
+    <div id="container">
+      <h1>To-Do List <i id="plus" class="fa fa-plus"></i></h1>
+      <input type="text" id="task" placeholder="Add task" />
+      <ul id="list">
+        
+      <ul>
+    </div>
+<script type="text/javascript">
+  $("#changeColors").on("click", function() {
+    let backCol = $("#backgroundColor").val();
+    let listCol = $("#listColor").val();
+    let bannerCol = $("#bannerColor").val();
+    let listName = $("#listName").val();
+    $("body").css("background", backCol);
+    $("li").css("background", listCol);
+    $("h1").html(listName);
+    $("h1").css("background", bannerCol);
+  }); 
+
+  // 'Complete' the task
+  $("ul").on("click", "li", function(){
+    $(this).toggleClass("completed");
+  });
+
+  // Pressing the X to delete the task
+  // Using stopPropagation helps with only clicking on the span tag instead of crossing it off
+  $("ul").on("click", "span", function(event) {
+    $(this).parent().fadeOut(500, function() {
+      $(this).remove();
+    });
+    event.stopPropagation();
+  });
+
+  // Pressing the plus sign adds items to the list
+  $("#plus").on("click", function() {
+    let taskItem = $("#task").val();
+    $(this).val("");
+    $("#list").append("<li><span><i class='fa fa-trash'></i></span> " + taskItem + "</li>");
+  });
+
+  // Getting the task from the user input
+  $("input[type='text'").keypress(function(event) {
+    if (event.which === 13) {
+      let taskItem = $(this).val();
+      $(this).val("");
+      $("#list").append("<li><span><i class='fa fa-trash'></i></span> " + taskItem + "</li>");
+    }
+  });
+    </script>
+  </body>
+</html>
