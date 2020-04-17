@@ -65,8 +65,8 @@
   // Pressing the plus sign adds items to the list
   $("#plus").on("click", function() {
     let taskItem = $("#task").val();
-    $(#task).val("");
     $("#list").append("<li><span><i class='fa fa-trash'></i></span> " + taskItem + "</li>");
+    $(#task).val("");
   });
 
   // Getting the task from the user input
